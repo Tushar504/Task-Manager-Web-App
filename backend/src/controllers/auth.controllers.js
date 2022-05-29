@@ -22,7 +22,7 @@ const register=async(req,res)=>{
         }
         user=await User.create(req.body)
         let token=generateToken(user)
-        return res.status(200).send(user,token)
+        return res.status(200).send({user,token})
         
     } 
     catch (error) {
@@ -58,5 +58,7 @@ const login=async(req,res)=>{
         return res.status(400).send(error.message)
     }
 }
+
+
 
 module.exports={register,login}

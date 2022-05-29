@@ -2,6 +2,7 @@ const express=require("express")
 const app=express()
 const { register, login } = require("./controllers/auth.controllers");
 const { body, validationResult } = require("express-validator");
+const authenticate=require("./middlewares/authenticate")
 var cors = require('cors')
 app.use(cors())
 app.use(express.json())
@@ -12,9 +13,20 @@ const taskController=require("./controllers/task.controller")
 
 app.use("/task",taskController)
 
+app.post("/auth",authenticate,async(req,res)=>{
+  try {
+            if(req.user){
+              res.send({user:req.user})
+            }
+            console.log(req.user)
+  } 
+  catch (error) {
+        res.send(error)
+  }
+})
 app.post(
     "/register",
-    body("name").notEmpty().withMessage("first name is required"),
+    body("name").notEmpty().withMessage("name is required"),
     body("mobile").notEmpty().withMessage("mobile no is required"),
     body("email")
       .notEmpty()

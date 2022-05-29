@@ -21,7 +21,7 @@ const authenticate=async(req,res,next)=>{
    try {
        decoded=await verifyToken(token)
       if(decoded){
-          req.user=decoded.user._id
+          req.user=decoded.user
         return next()
       }
       else{
