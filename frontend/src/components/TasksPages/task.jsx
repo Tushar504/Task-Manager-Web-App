@@ -40,9 +40,9 @@ export const Taskpage=()=>{
         let filter='all'
         if(token===undefined){
            
-            return navigate("/")
+             navigate("/")
           }
-          return  dispatch(TaskPageData(token,id,filter))
+          else{ dispatch(TaskPageData(token,id,filter))}
            
           
         

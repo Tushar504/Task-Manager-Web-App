@@ -29,9 +29,9 @@ export const AddTask=()=>{
     })
     useEffect(()=>{
       if(token===undefined){
-        return navigate("/")
+         navigate("/")
       }
-      return 
+    
     },[])
 
     const [subtask,setSubtask]=useState({

@@ -21,10 +21,11 @@ export const Home=()=>{
   useEffect(()=>{
     if(token===undefined){
        
-        return navigate("/")
+         navigate("/")
       }
-       return  dispatch(authenticate(token))
-  
+      else{
+         dispatch(authenticate(token))
+      }
 
   },[])
 
