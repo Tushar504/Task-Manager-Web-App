@@ -104,8 +104,8 @@ export const Sidebar=()=>{
             <Link to="/task/personal"><Button sx={{marginTop:3.2,color:'white',fontWeight:'bold'}} variant="text">Personal</Button></Link><br></br>
             <Link to="/task/official"><Button sx={{marginTop:3.5,color:'white',fontWeight:'bold'}} variant="text">Official</Button></Link><br></br>
             <Link to="/task/others"><Button sx={{marginTop:3.5,color:'white',fontWeight:'bold'}} variant="text">Others</Button></Link><br></br>
-            <Link to="/addtask"><Button sx={{marginTop:3.2,color:'white',fontWeight:'bold'}} variant="text">Add Task</Button></Link><br></br>
-            <Button sx={{marginTop:3.2,color:'white',fontWeight:'bold'}} onClick={()=>{
+            <Link to="/addtask"><Button sx={{marginTop:3,color:'white',fontWeight:'bold'}} variant="text">Add Task</Button></Link><br></br>
+            <Button sx={{marginTop:3.1,color:'white',fontWeight:'bold'}} onClick={()=>{
                 
                 Cookies.remove('Name')
                 Cookies.remove('Token')
