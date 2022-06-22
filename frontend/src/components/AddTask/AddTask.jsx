@@ -7,15 +7,18 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AddTasktoBackend } from '../../redux/action';
 import Cookies from 'js-cookie';
 import { Sidebar } from '../Sidebar/sidebar';
+import { useNavigate } from 'react-router-dom';
 import "./AddTask.css"
 
 export const AddTask=()=>{
     const dispatch=useDispatch()
+    const token=Cookies.get("Token")
     const [Tag, setTag] =useState('');
+    const navigate=useNavigate()
     const [taskData,setTaskData]=useState({
         title:"",
         description:"",
@@ -24,6 +27,12 @@ export const AddTask=()=>{
         date:""
         
     })
+    useEffect(()=>{
+      if(token===undefined){
+        return navigate("/")
+      }
+      return 
+    },[])
 
     const [subtask,setSubtask]=useState({
         title:"",
@@ -36,7 +45,7 @@ export const AddTask=()=>{
              })
    }
   const handleChange = (event) => {
-    console.log(event.target)
+   
     setTaskData({
         ...taskData,
         tag:event.target.value

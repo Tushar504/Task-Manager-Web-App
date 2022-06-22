@@ -15,14 +15,20 @@ export const Home=()=>{
   const Data=useSelector(store=>store.home_pageData)
   const navigate=useNavigate()
   const Name=Cookies.get("Name")
+  
+
+
   useEffect(()=>{
-   
-         dispatch(authenticate(token))
+    if(token===undefined){
+       
+        return navigate("/")
+      }
+       return  dispatch(authenticate(token))
   
 
   },[])
 
-
+  
 
   
 return (<div className="PagesOuterSideDiv">

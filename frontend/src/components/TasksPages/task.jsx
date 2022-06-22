@@ -12,7 +12,7 @@ import { useEffect ,useState} from "react"
 import { Sidebar } from "../Sidebar/sidebar";
 import "./task.css"
 import { Button } from "@mui/material"
-
+import { useNavigate } from "react-router-dom";
 
 
    
@@ -27,7 +27,7 @@ export const Taskpage=()=>{
     const dispatch=useDispatch()
     const Tasks=useSelector(store=>store.tasks)
    
-    
+    const navigate=useNavigate()
     const [status, setstatus] = useState('all');
 
   const handleChange = (event) => {
@@ -38,8 +38,11 @@ export const Taskpage=()=>{
 
     useEffect(()=>{
         let filter='all'
+        if(token===undefined){
            
-            dispatch(TaskPageData(token,id,filter))
+            return navigate("/")
+          }
+          return  dispatch(TaskPageData(token,id,filter))
            
           
         
