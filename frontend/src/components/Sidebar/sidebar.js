@@ -15,7 +15,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import { styled as newStyled } from '@mui/material/styles';
-
+import CopyrightIcon from '@mui/icons-material/Copyright';
 import "./sidebar.css"
 
 const LightTooltip = newStyled(({ className, ...props }) => (
@@ -72,6 +72,7 @@ export const Sidebar=()=>{
     const navigate=useNavigate()
     return ( Name?<Div className='SidebarMainDiv' show={show}>
             {show?<h1>{Name?Name:null}</h1>:<LightTooltip  title={`${Name}`} arrow><h1 style={{backgroundColor:"white",color:'black',borderRadius:'25px', width:'80%',cursor:'pointer',margin:'auto',marginTop:'20px',marginBottom:'20px'}}>{Name?Name[0]:null}</h1></LightTooltip>}
+           
             <div className='ArrorDiv'>
              <Hr show={show}></Hr>
             {show?<ArrowCircleLeftIcon sx={{cursor:'pointer'}} onClick={()=>setshow(false)}/>:<ArrowCircleRightIcon sx={{cursor:'pointer'}} onClick={()=>setshow(true)}/>}
@@ -111,8 +112,11 @@ export const Sidebar=()=>{
                 Cookies.remove('Token')
                 navigate('/')
                 }} variant="text">Logout</Button>
+            <div style={{display:'flex',marginTop:'40px',color:'rgb(151, 195, 225)',fontSize:"12px"}}><CopyrightIcon sx={{marginRight:0.8,fontSize:15}}/><p style={{margin:'0px',marginTop:'1px'}}>2022 Tushar</p></div>
         </Buttons>:null}
+      
         </div>
+      
         </Div>:null
     )
 }

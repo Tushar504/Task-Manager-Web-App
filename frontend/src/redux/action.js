@@ -127,7 +127,7 @@ export const register=(data,setCookie)=>{
              })
 
             var received=await res.json()
-                 console.log(received)
+               
                 dispatch(Auth(received))
           } catch (error) {
                 console.log(error.message)
