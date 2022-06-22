@@ -64,4 +64,4 @@ All the user Information and All the tasks are stored in Backend so you can also
 ---
 
 - ### Responsive Design
-  ![alt text](/Demo/responsive.png)
+  ![alt text](/Images/response.png)
