@@ -58,7 +58,7 @@ export const Taskpage=()=>{
              </div>
         <div style={{width:'85%'}}>
           <div className="Sort_Div">
-          <FormControl sx={{width:"200px",margin:2}}>
+          <FormControl sx={{width:"200px",margin:2,  boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;'}}>
           <InputLabel id="demo-simple-select-label">Filter</InputLabel>
           <Select
           labelId="demo-simple-select-label"
@@ -77,9 +77,10 @@ export const Taskpage=()=>{
     {Tasks.length!==0?<div className="PagesMainDiv">
                  {Tasks.map((ele)=>{
                     return <div className="pagesTaskDiv" key={ele._id}>
-                       { ele.status==="completed"? <Chip sx={{backgroundColor:'rgb(25,118,210)', color:"white", marginTop:1.2,fontWeight:'bold'}} label="Completed" variant="outlined"/>: <Chip sx={{backgroundColor:'red', color:"white", marginTop:1,fontWeight:'bold'}} label="Pending" variant="outlined" />}
+                         <Chip sx={{backgroundColor:'rgb(25,118,210)', color:"white", marginTop:1.2}} avatar={<Avatar alt={ele.tag} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThu7m6UZ6dq-GqGoHo7xGlw-TIwXdx4eB0eg&usqp=CAU' />}label={ele.tag.toUpperCase()}variant="outlined"/>
+                       { ele.status==="completed"? <Chip sx={{backgroundColor:'rgb(25,118,210)', color:"white", marginTop:1.2,fontWeight:'bold'}} label={ele.status.toUpperCase()} variant="outlined"/>: <Chip sx={{backgroundColor:'red', color:"white", marginTop:1,fontWeight:'bold'}} label={ele.status.toUpperCase()} variant="outlined" />}
                          <h6 className="Date">Date: {ele.date.split("-").reverse().join("-")}</h6>
-                         <Chip sx={{backgroundColor:'rgb(25,118,210)', color:"white", marginTop:1.2}} avatar={<Avatar alt={ele.tag} src={ele.tag} />}label={ele.tag}variant="outlined"/>
+                        
                             
                             <p className="Headings">Task Title:</p>
                            
@@ -117,7 +118,7 @@ export const Taskpage=()=>{
                                              }
                                              dispatch(updateSubtask(ele._id,e._id,status,token,id,data))
                                          }} type="checkbox"/>}
-                                         <h5>{e.title}</h5>
+                                         <p style={{fontSize:'15px', margin:0}}>{e.title}</p>
                                     </div>
                                 })}
                             </div>

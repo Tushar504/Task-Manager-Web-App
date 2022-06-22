@@ -33,7 +33,7 @@ const LightTooltip = newStyled(({ className, ...props }) => (
 const Div=styled.div`
 width:${(props)=>props.show?"200px":"45px"};
 height: 750px;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 text-align:center;
 background-color:rgb(25,118,210);
 color:white;

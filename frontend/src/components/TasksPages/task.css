@@ -17,11 +17,9 @@
 
 .PagesSubDiv{
     display: flex;
-    margin-top: 10px;
+    margin: 10px;
 }
-.PagesSubDiv>h5{
-   margin: 0px;
-}
+
 .pagesTaskDiv{
     background-color: white;
     color:black;
