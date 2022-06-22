@@ -77,8 +77,8 @@ export const Taskpage=()=>{
     {Tasks.length!==0?<div className="PagesMainDiv">
                  {Tasks.map((ele)=>{
                     return <div className="pagesTaskDiv" key={ele._id}>
-                         <Chip sx={{backgroundColor:'rgb(25,118,210)', color:"white", marginTop:1.2}} avatar={<Avatar alt={ele.tag} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThu7m6UZ6dq-GqGoHo7xGlw-TIwXdx4eB0eg&usqp=CAU' />}label={ele.tag.toUpperCase()}variant="outlined"/>
-                       { ele.status==="completed"? <Chip sx={{backgroundColor:'rgb(25,118,210)', color:"white", marginTop:1.2,fontWeight:'bold'}} label={ele.status.toUpperCase()} variant="outlined"/>: <Chip sx={{backgroundColor:'red', color:"white", marginTop:1,fontWeight:'bold'}} label={ele.status.toUpperCase()} variant="outlined" />}
+                         <Chip sx={{backgroundColor:'rgb(25,118,210)', color:"white", marginTop:1.4}} avatar={<Avatar alt={ele.tag} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThu7m6UZ6dq-GqGoHo7xGlw-TIwXdx4eB0eg&usqp=CAU' />}label={ele.tag.toUpperCase()}variant="outlined"/>
+                       { ele.status==="completed"? <Chip sx={{backgroundColor:'rgb(25,118,210)', color:"white", marginTop:1.4,fontWeight:'bold'}} label={ele.status.toUpperCase()} variant="outlined"/>: <Chip sx={{backgroundColor:'red', color:"white", marginTop:1.4,fontWeight:'bold'}} label={ele.status.toUpperCase()} variant="outlined" />}
                          <h6 className="Date">Date: {ele.date.split("-").reverse().join("-")}</h6>
                         
                             
