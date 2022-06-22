@@ -88,10 +88,14 @@ export const register=(data,setCookie)=>{
                 
                 }
                 else{
-                 
+                  
+                    if(received.errors){
+                    alert(received.errors[0].msg)
+                  }
                   if(received.message[0].msg){
                       alert(received.message[0].msg)
                   }
+                 
                   else{
                   alert(received.message)
                   }
