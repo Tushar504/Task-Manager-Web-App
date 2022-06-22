@@ -1,0 +1,18 @@
+
+
+.IconsMainDiv{
+     display: flex;
+}
+
+
+.ArrorDiv{
+    background-color: rgb(25,118,210);
+    display: flex;
+    justify-content:space-between;
+    font-family:Book Antiqua
+   
+}
+a{
+   
+    text-decoration: none;
+}

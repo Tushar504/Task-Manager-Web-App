@@ -22,7 +22,7 @@ const register=async(req,res)=>{
         }
         user=await User.create(req.body)
         let token=generateToken(user)
-        return res.status(200).send({user,token})
+        return res.status(200).send({Name:user.name,Token:token,message:"success"})
         
     } 
     catch (error) {
@@ -34,7 +34,7 @@ const login=async(req,res)=>{
     try {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
-          return res.status(400).json({ errors: errors.array() });
+          return res.status(400).json({ message: errors.array() });
         }
     
         let user=await User.findOne({email:req.body.email})
@@ -47,7 +47,7 @@ const login=async(req,res)=>{
         if(match){
            let token=generateToken(user)
 
-           return res.status(200).send({user,token})
+           return res.status(200).send({Name:user.name,Token:token,message:"success"})
         }
 
   return res.status(400).send({message:"incorrect password"})

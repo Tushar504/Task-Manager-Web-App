@@ -13,17 +13,7 @@ const taskController=require("./controllers/task.controller")
 
 app.use("/task",taskController)
 
-app.post("/auth",authenticate,async(req,res)=>{
-  try {
-            if(req.user){
-              res.send({user:req.user})
-            }
-            console.log(req.user)
-  } 
-  catch (error) {
-        res.send(error)
-  }
-})
+
 app.post(
     "/register",
     body("name").notEmpty().withMessage("name is required"),

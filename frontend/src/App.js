@@ -1,33 +1,32 @@
 
 import './App.css';
-
-import {Register} from "./components/register"
-import {Login} from "./components/login"
-import { authenticate } from './redux/action';
+import { Sidebar } from "./components/Sidebar/sidebar"
+import {Register} from "./components/Register/register"
+import {Login} from "./components/Login/login"
+import {AddTask} from "./components/AddTask/AddTask"
+import { Taskpage } from './components/TasksPages/task';
 import {Routes,Route} from "react-router-dom";
-import {useDispatch} from "react-redux"
-import {All} from "./components/All"
+
+import {Home} from "./components/Home/home"
+
+
 
 function App() {
-  let token=localStorage.getItem("Token")
- 
-  const dispatch=useDispatch()
-  if(token!==null){
-    dispatch(authenticate(token))
- 
   
-  }
-  
-  
-  return (
+ return (
     <div className="App">
-      <Routes>
-      <Route path="/" element={<All/>} />
+     
+      
+      <Routes >
+      <Route path="/" element={<Login/>} />
+      <Route path="/home" element={<Home/>} />
+      
       <Route path="/register" element={<Register />} />
-      <Route path="/login" element={<All />} />
+      <Route path="/addtask" element={<AddTask />} />
+      <Route path="/task/:id" element={<Taskpage />} />
       </Routes>
    
-        
+     
     </div>
   );
 }

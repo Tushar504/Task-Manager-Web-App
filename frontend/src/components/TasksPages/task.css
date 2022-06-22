@@ -1,0 +1,70 @@
+.PagesOuterSideDiv{
+    display: flex;
+   
+}
+
+.PagesMainDiv{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
+    padding:10px;
+    font-weight: bold;
+    font-family: Book Antiqua;
+    margin-top: 20px;
+    overflow-y: auto;
+   
+}
+
+.PagesSubDiv{
+    display: flex;
+    margin-top: 10px;
+}
+.PagesSubDiv>h5{
+   margin: 0px;
+}
+.pagesTaskDiv{
+    background-color: white;
+    color:black;
+    position: relative;
+     padding: 10px;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+     border-radius: 10px;
+
+}
+.Date{
+   position:absolute;
+  margin: 0px;
+   top: 5px; 
+   right: 10px;
+   font-size: 15px;
+}
+.Headings{
+    margin: 5px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: blue;
+}
+.Gif{
+   
+    text-align: center;
+    font-family: Book Antiqua;
+}
+.Gif>img{
+
+    width: 25%;
+}
+.TaskTitle{
+    margin: 5px;
+    font-size: 15px;
+}
+
+@media only Screen and (min-width:0px) and (max-width:800px){
+    .PagesMainDiv{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .Gif>img{
+
+        width: 75%;
+    }
+    
+}

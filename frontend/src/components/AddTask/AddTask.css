@@ -1,0 +1,46 @@
+.AddtaskDiv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.AddTaskForm{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    width:300px;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid blue;
+}
+.subTaskMainDiv{
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    overflow-y: auto;
+  
+}
+.subTaskDiv{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+    background-color: rgb(25,118,210);
+    color: white;
+    font-weight: bold;
+    font-family:Book Antiqua ;
+    margin-top: 5px;
+    border-radius: 5px;
+    width: 90%;
+    margin: auto;
+    margin-top: 5px;
+    padding: 5px;
+
+}
+
+@media only Screen and (min-width:0px) and (max-width:720px){
+    .AddtaskDiv{
+        padding:0px;
+    }
+   
+}

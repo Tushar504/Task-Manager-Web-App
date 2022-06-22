@@ -1,0 +1,51 @@
+.AllPageMainDiv{
+    display: flex;
+    font-family: Book Antiqua;
+    justify-content: space-between;
+}
+
+
+.HomeOuterDiv{
+    display: flex;
+    justify-content: center;
+     margin-top: 80px;
+    text-align: center;
+    flex-wrap: wrap;
+    
+}
+.HomeInDiv{
+    width: 250px;
+    margin: 10px;
+    background-color:rgb(25,118,210);
+ 
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+}
+.Image{
+    width: 75%;
+    height: 350px;
+    margin-top: 50px;
+}
+.NameHead{
+    font-weight: bold;
+    font-size: 20px;
+}
+@media only Screen and (min-width:0px) and (max-width:720px){
+    .HomeOuterDiv{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 40px;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+    .HomeInDiv{
+        width: 220px;
+    }
+    .Image{
+        width: 80%;
+        height: 200px;
+        margin-top: 50px;
+    }
+}
