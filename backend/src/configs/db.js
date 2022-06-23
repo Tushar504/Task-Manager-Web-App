@@ -1,6 +1,6 @@
 const mongoose=require("mongoose")
-
+require('dotenv').config()
 const connect=()=>{
-    return mongoose.connect("mongodb+srv://tushar:ahire98@task-manager.zxpw7.mongodb.net/task-manager?retryWrites=true&w=majority")
+    return mongoose.connect(process.env.mongoDbURI)
 }
 module.exports=connect
