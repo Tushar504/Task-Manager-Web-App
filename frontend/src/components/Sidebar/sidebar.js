@@ -1,5 +1,4 @@
 import Button from '@mui/material/Button';
-import { Link } from "react-router-dom"
 import HomeIcon from '@mui/icons-material/Home';
 import AllInboxIcon from '@mui/icons-material/AllInbox';
 import PersonalVideoIcon from '@mui/icons-material/PersonalVideo';
@@ -14,8 +13,11 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import styled from 'styled-components';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
 import { styled as newStyled } from '@mui/material/styles';
 import CopyrightIcon from '@mui/icons-material/Copyright';
+import { removeTask } from '../../redux/action';
+import { useDispatch } from 'react-redux';
 import "./sidebar.css"
 
 const LightTooltip = newStyled(({ className, ...props }) => (
@@ -68,7 +70,7 @@ margin-top:10px
 export const Sidebar=()=>{
    const Name=Cookies.get("Name")
    const [show,setshow]=useState(false)
-   
+   const dispatch=useDispatch()
     const navigate=useNavigate()
     return ( Name?<Div className='SidebarMainDiv' show={show}>
             {show?<h1>{Name?Name:null}</h1>:<LightTooltip  title={`${Name}`} arrow><h1 style={{backgroundColor:"white",color:'black',borderRadius:'25px', width:'80%',cursor:'pointer',margin:'auto',marginTop:'20px',marginBottom:'20px'}}>{Name?Name[0]:null}</h1></LightTooltip>}
@@ -81,32 +83,72 @@ export const Sidebar=()=>{
             <div className='IconsMainDiv'>
             <Icons show={show}>
           
-            <LightTooltip  title="Home" arrow><Link to="/home"> <HomeIcon sx={{marginTop:2.5,fontSize:30,color:'white'}}/></Link></LightTooltip><br></br>
-            <LightTooltip  title="All" arrow><Link to="/task/all">  <AllInboxIcon sx={{marginTop:3.5,fontSize:30,color:'white'}}/></Link></LightTooltip><br></br>
-            <LightTooltip  title="Personal" arrow><Link to="/task/personal">  <PersonalVideoIcon sx={{marginTop:3.5,fontSize:30,color:'white'}}/></Link></LightTooltip><br></br>
-            <LightTooltip  title="Official" arrow><Link to="/task/official"> <HomeWorkIcon sx={{marginTop:3.5,fontSize:30,color:'white'}}/></Link></LightTooltip><br></br>
-            <LightTooltip  title="Others" arrow><Link to="/task/others">  <OtherHousesIcon sx={{marginTop:3.5,fontSize:30,color:'white'}}/></Link></LightTooltip><br></br>
-            <LightTooltip  title="Add Task" arrow><Link to="/addtask">  <AddCardIcon sx={{marginTop:3.5,fontSize:30,color:'white'}}/></Link></LightTooltip><br></br>
+            <LightTooltip  title="Home" arrow><IconButton onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/home')
+            }}> <HomeIcon sx={{marginTop:1.7,fontSize:30,color:'white'}}/></IconButton></LightTooltip><br></br>
+            
+            <LightTooltip  title="All" arrow><IconButton onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/task/all')
+            }}>  <AllInboxIcon sx={{marginTop:2,fontSize:30,color:'white'}}/></IconButton></LightTooltip><br></br>
+            
+            <LightTooltip  title="Personal" arrow><IconButton onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/task/personal')
+            }}>  <PersonalVideoIcon sx={{marginTop:2,fontSize:30,color:'white'}}/></IconButton></LightTooltip><br></br>
+            <LightTooltip  title="Official" arrow><IconButton onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/task/official')
+            }}> <HomeWorkIcon sx={{marginTop:2,fontSize:30,color:'white'}}/></IconButton></LightTooltip><br></br>
+            
+            <LightTooltip  title="Others" arrow><IconButton onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/task/others')
+            }}>  <OtherHousesIcon sx={{marginTop:2,fontSize:30,color:'white'}}/></IconButton></LightTooltip><br></br>
+           
+            <LightTooltip  title="Add Task" arrow><IconButton onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/addtask')
+            }}>  <AddCardIcon sx={{marginTop:2,fontSize:30,color:'white'}}/></IconButton></LightTooltip><br></br>
+           
             <LightTooltip  title="Logout" arrow> 
-            <LogoutIcon  onClick={()=>{
+            <IconButton><LogoutIcon  onClick={()=>{
                 Cookies.remove('Name')
                 Cookies.remove('Token')
 
             
                  navigate("/")
              
-               }} sx={{marginTop:3.5,fontSize:30,color:'white',cursor:'pointer'}}/>
+               }} sx={{marginTop:2,fontSize:30,color:'white',cursor:'pointer'}}/></IconButton>
                 </LightTooltip>
             </Icons>
   
             {show?<Buttons >
-              <Link to="/home"><Button sx={{marginTop:2.5,color:'white',fontWeight:'bold'}}  variant='text'>Home</Button></Link> <br></br>
-            <Link to="/task/all"><Button sx={{marginTop:3,color:'white',fontWeight:'bold'}} variant="text">All</Button></Link><br></br>
-            <Link to="/task/personal"><Button sx={{marginTop:3.2,color:'white',fontWeight:'bold'}} variant="text">Personal</Button></Link><br></br>
-            <Link to="/task/official"><Button sx={{marginTop:3.5,color:'white',fontWeight:'bold'}} variant="text">Official</Button></Link><br></br>
-            <Link to="/task/others"><Button sx={{marginTop:3.3,color:'white',fontWeight:'bold'}} variant="text">Others</Button></Link><br></br>
-            <Link to="/addtask"><Button sx={{marginTop:3,color:'white',fontWeight:'bold'}} variant="text">Add Task</Button></Link><br></br>
-            <Button sx={{marginTop:3.1,color:'white',fontWeight:'bold'}} onClick={()=>{
+              <Button onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/home')
+            }} sx={{marginTop:2.5,color:'white',fontWeight:'bold'}}  variant='text'>Home</Button> <br></br>
+              <Button onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/task/all')
+            }} sx={{marginTop:3,color:'white',fontWeight:'bold'}} variant="text">All</Button><br></br>
+              <Button onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/task/personal')
+            }} sx={{marginTop:3.2,color:'white',fontWeight:'bold'}} variant="text">Personal</Button><br></br>
+              <Button onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/task/official')}} sx={{marginTop:3.5,color:'white',fontWeight:'bold'}} variant="text">Official</Button><br></br>
+              <Button onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/task/others')
+            }} sx={{marginTop:3.3,color:'white',fontWeight:'bold'}} variant="text">Others</Button><br></br>
+              <Button onClick={()=>{
+                              dispatch(removeTask())
+                              navigate('/addtask')
+            }} sx={{marginTop:3,color:'white',fontWeight:'bold'}} variant="text">Add Task</Button><br></br>
+              <Button sx={{marginTop:3.1,color:'white',fontWeight:'bold'}} onClick={()=>{
                 
                 Cookies.remove('Name')
                 Cookies.remove('Token')

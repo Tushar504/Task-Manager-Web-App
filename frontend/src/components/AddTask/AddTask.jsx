@@ -60,7 +60,9 @@ export const AddTask=()=>{
     
     <div style={{width:'85%',textAlign:'center'}}>
      <div className='AddtaskDiv'>
+    
         <form className='AddTaskForm'>
+        <Button variant="text" sx={{fontWeight:'bold'}} >Task Details</Button>
                 <TextField onChange={(e)=>updateTaskData(e.target)} id="title" sx={{margin:2}} label="Task Title" variant="outlined" /><br></br>
                 <TextField onChange={(e)=>updateTaskData(e.target)} sx={{margin:2,width:225}} id="description" label="Description" multiline rows={4} /><br></br>
 
@@ -84,6 +86,7 @@ export const AddTask=()=>{
         </form>
       
         <form className='AddTaskForm'>
+                 <Button variant="text" sx={{fontWeight:'bold'}} >Add Subtasks</Button>
                 <TextField onChange={(e)=>setSubtask({...subtask,title:e.target.value})} sx={{marginTop:2.5}} label="Title" variant="outlined" />
                 <Button onClick={()=>{
                     if(subtask.title!==""){
@@ -92,6 +95,7 @@ export const AddTask=()=>{
                 }} sx={{marginTop:1.5}} ><AddBoxIcon sx={{color:'rgb(25,118,210)',fontSize: 55 }}/></Button><br></br>
              <hr></hr>
                 <div className='subTaskMainDiv'>
+                 
                     { taskData.subtasks.length!==0?taskData.subtasks.map((ele,index)=>{
                             return (<div key={index} className='subTaskDiv'>
                                      <p>{ele.title}</p>
@@ -99,8 +103,6 @@ export const AddTask=()=>{
                                         let data=[...taskData.subtasks].filter((ele,idx)=>{
                                                 return  idx!==index
                                         })
-                                        
-                                   
                                         setTaskData({...taskData,subtasks:data})
                                      }} ><DeleteForeverIcon sx={{color:'white'}}/> </Button>   
                            </div> )
@@ -110,7 +112,7 @@ export const AddTask=()=>{
         </form>
 
         <form className='AddTaskForm'>
-               Date: <input style={{margin:'20px'}} onChange={(e)=>setTaskData({...taskData,date:e.target.value})} type="date" /><br></br>
+        <Button variant="text" sx={{fontWeight:'bold',width:'10px'}} >Date</Button>:<input style={{margin:'20px'}} onChange={(e)=>setTaskData({...taskData,date:e.target.value})} type="date" /><br></br>
                <Button onClick={(e)=>{
                      e.preventDefault()
                      let token=Cookies.get("Token")

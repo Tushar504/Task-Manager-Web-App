@@ -3,10 +3,10 @@
 import Cookies from 'js-cookie'
 export const ADD_USER="ADD_USER"
 export const ADD_TASK="ADD_TASK"
-
-
- export const AUTH="AUTH"
- const addUser=(data)=>{
+export const RTASK="RTASK"
+export const AUTH="AUTH"
+ 
+const addUser=(data)=>{
     return {
         type:ADD_USER,
         payload:data
@@ -17,6 +17,12 @@ const AddTASKData=(data)=>{
     return {
         type:ADD_TASK,
         payload:data
+    }
+}
+export const removeTask=()=>{
+    return {
+        type:RTASK,
+        payload:undefined
     }
 }
  
