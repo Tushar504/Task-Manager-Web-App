@@ -27,7 +27,7 @@ export const Register=()=>{
     return (
       
             <form className="Form">
-                 <Button sx={{fontSize:25,fontWeight:'bold'}} variant="text">Signup</Button><br></br>
+                 <Button sx={{fontSize:25,fontWeight:'bold'}} variant="text">Sign up</Button><br></br>
              <TextField onChange={(e)=>update(e.target)} margin="dense"  name="name" type="text"  label="Your name" variant="outlined" />
              
              <br></br>
