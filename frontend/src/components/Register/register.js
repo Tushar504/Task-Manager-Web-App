@@ -53,7 +53,7 @@ export const Register=()=>{
               }}>Register</Button>
               <br></br>
               <br></br>
-               <Link to="/">Signin</Link>
+               <Link to="/">Sign in</Link>
               </form>
         
     )
