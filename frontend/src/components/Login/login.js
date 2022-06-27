@@ -34,7 +34,7 @@ export const Login=()=>{
     return (
        
         <form className="Form">
-            <Button sx={{fontSize:25,fontWeight:'bold'}} variant="text">Login</Button><br></br>
+            <Button sx={{fontSize:25,fontWeight:'bold'}} variant="text">Signin</Button><br></br>
             <TextField onChange={(e)=>update(e.target)} margin="dense"  name="email" type="email"  label="Email" variant="outlined" />
              <br></br>
              <br></br>
