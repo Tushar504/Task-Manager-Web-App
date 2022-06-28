@@ -35,8 +35,8 @@ export const AddTask=()=>{
     },[])
 
     const [subtask,setSubtask]=useState({
-        title:"",
-        status:false
+        title:""
+      
     })
    const updateTaskData=(target)=>{
              setTaskData({
