@@ -113,14 +113,14 @@ export const Sidebar=()=>{
             }}>  <AddCardIcon sx={{marginTop:2,fontSize:30,color:'white'}}/></IconButton></LightTooltip><br></br>
            
             <LightTooltip  title="Logout" arrow> 
-            <IconButton><LogoutIcon  onClick={()=>{
+            <IconButton  onClick={()=>{
                 Cookies.remove('Name')
                 Cookies.remove('Token')
 
             
                  navigate("/")
              
-               }} sx={{marginTop:2,fontSize:30,color:'white',cursor:'pointer'}}/></IconButton>
+               }}><LogoutIcon  sx={{marginTop:2,fontSize:30,color:'white',cursor:'pointer'}}/></IconButton>
                 </LightTooltip>
             </Icons>
   

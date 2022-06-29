@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Button from '@mui/material/Button';
 import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useRef} from 'react';
 import { AddTasktoBackend } from '../../redux/action';
 import Cookies from 'js-cookie';
 import { Sidebar } from '../Sidebar/sidebar';
@@ -17,6 +17,11 @@ import "./AddTask.css"
 export const AddTask=()=>{
     const dispatch=useDispatch()
     const token=Cookies.get("Token")
+    const Input1=useRef(null)
+    const Input2=useRef(null)
+    const Input3=useRef(null)
+    const Input4=useRef(null)
+
     const [Tag, setTag] =useState('');
     const navigate=useNavigate()
     const [taskData,setTaskData]=useState({
@@ -63,8 +68,8 @@ export const AddTask=()=>{
     
         <form className='AddTaskForm'>
         <Button variant="text" sx={{fontWeight:'bold'}} >Task Details</Button>
-                <TextField onChange={(e)=>updateTaskData(e.target)} id="title" sx={{margin:2}} label="Task Title" variant="outlined" /><br></br>
-                <TextField onChange={(e)=>updateTaskData(e.target)} sx={{margin:2,width:225}} id="description" label="Description" multiline rows={4} /><br></br>
+                <TextField inputRef={Input1} onChange={(e)=>updateTaskData(e.target)} id="title" sx={{margin:2}}  label="Task Title" variant="outlined" /><br></br>
+                <TextField inputRef={Input2} onChange={(e)=>updateTaskData(e.target)} sx={{margin:2,width:225}}  id="description" label="Description" multiline rows={4} /><br></br>
 
               
       <FormControl sx={{width:225}}>
@@ -87,7 +92,7 @@ export const AddTask=()=>{
       
         <form className='AddTaskForm'>
                  <Button variant="text" sx={{fontWeight:'bold'}} >Add Subtasks</Button>
-                <TextField onChange={(e)=>setSubtask({...subtask,title:e.target.value})} sx={{marginTop:2.5}} label="Title" variant="outlined" />
+                <TextField inputRef={Input3} onChange={(e)=>setSubtask({...subtask,title:e.target.value})} sx={{marginTop:2.5}}  label="Title" variant="outlined" />
                 <Button onClick={()=>{
                     if(subtask.title!==""){
                         setTaskData({...taskData,subtasks:[...taskData.subtasks,subtask]})
@@ -112,11 +117,17 @@ export const AddTask=()=>{
         </form>
 
         <form className='AddTaskForm'>
-        <Button variant="text" sx={{fontWeight:'bold',width:'10px'}} >Date</Button>:<input style={{margin:'20px'}} onChange={(e)=>setTaskData({...taskData,date:e.target.value})} type="date" /><br></br>
+        <Button variant="text" sx={{fontWeight:'bold',width:'10px'}} >Date</Button>:<input ref={Input4} style={{margin:'20px'}} onChange={(e)=>setTaskData({...taskData,date:e.target.value})} type="date" /><br></br>
                <Button onClick={(e)=>{
                      e.preventDefault()
                      let token=Cookies.get("Token")
                      dispatch(AddTasktoBackend(token,taskData))
+                    Input1.current.value=""
+                    Input2.current.value=""
+                    Input3.current.value=""
+                    Input4.current.value=""
+                    setTaskData({...taskData,subtasks:[]})
+                    setTag('')
                }} variant="contained">Add Task</Button>
                
         </form>
